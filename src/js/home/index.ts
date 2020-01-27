@@ -5,7 +5,7 @@ let homeModule = angular.module('app.home', []);
 
 // Include our UI-Router config settings
 import HomeConfig from './home.config';
-homeModule.config(HomeConfig);
+homeModule.config(['$stateProvider', HomeConfig]);
 
 
 // Controllers

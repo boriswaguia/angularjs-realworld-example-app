@@ -1,4 +1,10 @@
 class ArticleActionsCtrl {
+  static $inject = ['Articles', 'User', '$state'];
+  _Articles: any;
+  _$state: any;
+  canModify: boolean;
+  article: any;
+  isDeleting: boolean;
   constructor(Articles, User, $state) {
     'ngInject';
 

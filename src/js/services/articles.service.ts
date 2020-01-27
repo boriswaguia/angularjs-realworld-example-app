@@ -1,4 +1,8 @@
 export default class Articles {
+  static $inject = ['AppConstants', '$http', '$q'];
+  _AppConstants: any;
+  _$http: any;
+  _$q: any;
   constructor(AppConstants, $http, $q) {
     'ngInject';
 
@@ -54,7 +58,8 @@ export default class Articles {
   }
 
   save(article) {
-    let request = {};
+    // let request = {};
+    let request: any = {}
 
     if (article.slug) {
       request.url = `${this._AppConstants.api}/articles/${article.slug}`;

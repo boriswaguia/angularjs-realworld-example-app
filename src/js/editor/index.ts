@@ -5,7 +5,7 @@ let editorModule = angular.module('app.editor', []);
 
 // Include our UI-Router config settings
 import EditorConfig from './editor.config';
-editorModule.config(EditorConfig);
+editorModule.config(['$stateProvider', EditorConfig]);
 
 
 // Controllers

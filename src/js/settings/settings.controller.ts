@@ -1,4 +1,11 @@
 class SettingsCtrl {
+  static $inject = ['User', '$state'];
+  _User: any;
+  _$state: any;
+  formData: { email: any; bio: any; image: any; username: any; };
+  logout: any;
+  isSubmitting: boolean;
+  errors: any;
   constructor(User, $state) {
     'ngInject';
 

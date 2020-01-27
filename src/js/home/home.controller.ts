@@ -1,4 +1,10 @@
 class HomeCtrl {
+  static $inject = ['User', 'Tags', 'AppConstants', '$scope'];
+  appName: any;
+  _$scope: any;
+  tagsLoaded: boolean;
+  tags: any;
+  listConfig: { type: string; };
   constructor(User, Tags, AppConstants, $scope) {
     'ngInject';
 

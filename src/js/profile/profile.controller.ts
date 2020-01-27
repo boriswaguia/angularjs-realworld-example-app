@@ -1,4 +1,7 @@
 class ProfileCtrl {
+  static $inject = ['profile', 'User'];
+  profile: any;
+  isUser: boolean;
   constructor(profile, User) {
     'ngInject';
 

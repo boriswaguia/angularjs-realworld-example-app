@@ -5,7 +5,7 @@ let articleModule = angular.module('app.article', []);
 
 // Include our UI-Router config settings
 import ArticleConfig from './article.config';
-articleModule.config(ArticleConfig);
+articleModule.config(['$stateProvider', ArticleConfig]);
 
 
 // Controllers

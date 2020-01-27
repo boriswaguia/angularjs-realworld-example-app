@@ -4,7 +4,7 @@ let settingsModule = angular.module('app.settings', []);
 
 // Config
 import SettingsConfig from './settings.config'
-settingsModule.config(SettingsConfig);
+settingsModule.config(['$stateProvider', SettingsConfig]);
 
 
 // Controllers

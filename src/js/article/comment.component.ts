@@ -1,4 +1,7 @@
 class CommentCtrl {
+  static $inject = ['User'];
+  canModify: boolean;
+  data: any;
   constructor(User) {
     'ngInject';
 

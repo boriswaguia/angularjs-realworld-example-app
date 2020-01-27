@@ -1,4 +1,12 @@
 class EditorCtrl {
+  static $inject = ['Articles', 'article', '$state'];
+  _Articles: any;
+  _$state: any;
+  article: any;
+  isSubmitting: boolean;
+  errors: any;
+  tagField: any;
+
   constructor(Articles, article, $state) {
     'ngInject';
 
@@ -19,7 +27,7 @@ class EditorCtrl {
   }
 
   addTag() {
-    if (!this.article.tagList.includes(this.tagField)) {
+    if (this.article.tagList && !this.article.tagList.includes(this.tagField)) {
       this.article.tagList.push(this.tagField);
       this.tagField = '';
     }

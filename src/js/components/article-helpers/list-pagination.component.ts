@@ -1,4 +1,6 @@
 class ListPaginationCtrl {
+  static $inject = ['$scope'];
+  _$scope: any;
   constructor($scope) {
     'ngInject';
 

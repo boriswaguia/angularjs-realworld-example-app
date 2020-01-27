@@ -9,9 +9,11 @@ var rename        = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 var uglify        = require('gulp-uglify');
 var merge         = require('merge-stream');
+var tsify         = require('tsify');
+
 
 // Where our files are located
-var jsFiles   = "src/js/**/*.js";
+var jsFiles   = "src/js/**/*.ts";
 var viewFiles = "src/js/**/*.html";
 
 var interceptErrors = function(error) {
@@ -29,9 +31,10 @@ var interceptErrors = function(error) {
 
 
 gulp.task('browserify', ['views'], function() {
-  return browserify('./src/js/app.js')
-      .transform(babelify, {presets: ["es2015"]})
-      .transform(ngAnnotate)
+  return browserify('./src/js/app.ts')
+      // .transform(babelify, {presets: ["es2015"]})
+      .plugin(tsify)
+      // .transform(ngAnnotate)
       .bundle()
       .on('error', interceptErrors)
       //Pass desired output filename to vinyl-source-stream
@@ -77,7 +80,7 @@ gulp.task('default', ['html', 'browserify'], function() {
     notify: false,
     ui: {
       port: 4001
-    }
+    },
   });
 
   gulp.watch("src/index.html", ['html']);

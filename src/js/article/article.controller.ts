@@ -1,6 +1,14 @@
 import marked from 'marked';
 
 class ArticleCtrl {
+  static $inject = ['article', 'User', 'Comments', '$sce', '$rootScope'];
+  article: any;
+  _Comments: any;
+  currentUser: any;
+  comments: any;
+  commentForm: { isSubmitting: boolean; body: string; errors: any[]; };
+
+
   constructor(article, User, Comments, $sce, $rootScope) {
     'ngInject';
 

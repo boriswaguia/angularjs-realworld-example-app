@@ -1,4 +1,10 @@
 class ArticleListCtrl {
+  static $inject = ['Articles', '$scope'];
+  _Articles: any;
+  listConfig: any;
+  list: any[];
+  loading: boolean;
+  limit: any;
   constructor(Articles, $scope) {
     'ngInject';
 

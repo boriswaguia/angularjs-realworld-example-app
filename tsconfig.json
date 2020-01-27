@@ -1,0 +1,9 @@
+{
+    "files": [
+        "src/**/*.ts"
+    ],
+    "compilerOptions": {
+        "target": "es5",
+        "esModuleInterop": true
+    }
+}

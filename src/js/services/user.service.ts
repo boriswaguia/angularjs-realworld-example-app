@@ -1,4 +1,11 @@
 export default class User {
+  static $inject = ['JWT', 'AppConstants', '$http', '$state', '$q'];
+  _JWT: any;
+  _AppConstants: any;
+  _$http: any;
+  _$state: any;
+  _$q: any;
+  current: any;
   constructor(JWT, AppConstants, $http, $state, $q) {
     'ngInject';
 

@@ -1,4 +1,11 @@
 class AuthCtrl {
+  static $inject = ['User', '$state'];
+  _User: any;
+  _$state: any;
+  title: any;
+  authType: any;
+  isSubmitting: boolean;
+  errors: any;
   constructor(User, $state) {
     'ngInject';
 
@@ -22,6 +29,9 @@ class AuthCtrl {
         this.errors = err.data.errors;
       }
     )
+  }
+  formData(authType: any, formData: any) {
+    throw new Error('Method not implemented.');
   }
 }
 

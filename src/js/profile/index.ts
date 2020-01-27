@@ -5,7 +5,7 @@ let profileModule = angular.module('app.profile', []);
 
 // Include our UI-Router config settings
 import ProfileConfig from './profile.config';
-profileModule.config(ProfileConfig);
+profileModule.config(['$stateProvider', ProfileConfig]);
 
 // Controllers
 import ProfileCtrl from './profile.controller';

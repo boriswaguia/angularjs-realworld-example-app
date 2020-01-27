@@ -1,4 +1,7 @@
 export default class JWT {
+  static $inject = ['AppConstants', '$window'];
+  _AppConstants: any;
+  _$window: any;
   constructor(AppConstants, $window) {
     'ngInject';
 

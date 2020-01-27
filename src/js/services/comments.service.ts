@@ -1,4 +1,7 @@
 export default class Comments {
+  static $inject = ['AppConstants', '$http'];
+  _AppConstants: any;
+  _$http: any;
   constructor(AppConstants, $http) {
     'ngInject';
 

@@ -1,4 +1,9 @@
 class ProfileArticlesCtrl {
+  static $inject = ['profile', '$state', '$rootScope'];
+  profile: any;
+  profileState: any;
+  listConfig: any;
+  
   constructor(profile, $state, $rootScope) {
     'ngInject';
 

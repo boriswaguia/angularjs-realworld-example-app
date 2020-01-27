@@ -1,4 +1,7 @@
 class AppFooterCtrl {
+  static $inject = ['AppConstants'];
+  appName: any;
+  date: Date;
   constructor(AppConstants) {
     'ngInject';
     this.appName = AppConstants.appName;

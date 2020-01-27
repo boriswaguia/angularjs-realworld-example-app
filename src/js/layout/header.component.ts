@@ -1,4 +1,7 @@
 class AppHeaderCtrl {
+  static $inject = ['AppConstants', 'User', '$scope'];
+  appName: any;
+  currentUser: any;
   constructor(AppConstants, User, $scope) {
     'ngInject';
 

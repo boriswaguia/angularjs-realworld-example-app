@@ -1,4 +1,10 @@
 class FavoriteBtnCtrl {
+  static $inject = ['User', 'Articles', '$state'];
+  _User: any;
+  _Articles: any;
+  _$state: any;
+  isSubmitting: boolean;
+  article: any;
   constructor(User, Articles, $state) {
     'ngInject';
 

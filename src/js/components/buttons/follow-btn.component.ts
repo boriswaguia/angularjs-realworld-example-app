@@ -1,4 +1,10 @@
 class FollowBtnCtrl {
+  static $inject = ['Profile', 'User', '$state'];
+  _Profile: any;
+  _User: any;
+  _$state: any;
+  isSubmitting: boolean;
+  user: any;
   constructor(Profile, User, $state) {
     'ngInject';
 
