@@ -8,6 +8,5 @@
     "compilerOptions": {
         "target": "es2015",
         "esModuleInterop": true,
-        "types": ["cypress"]
     }
 }
