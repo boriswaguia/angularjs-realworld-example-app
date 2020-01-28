@@ -1,9 +1,12 @@
 {
-    "files": [
+    "include": [
         "src/**/*.ts"
     ],
+    "exclude": [
+        "node_modules"
+    ],
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2015",
         "esModuleInterop": true
     }
 }

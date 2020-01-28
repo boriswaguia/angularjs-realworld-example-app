@@ -4,6 +4,11 @@
   "description": "Angular frontend for Conduit",
   "author": "Thinkster",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf ./build",
+    "serve": "npm run clean && gulp",
+    "test": "npm run clean && jest"
+  },
   "dependencies": {
     "@babel/register": "^7.8.3",
     "angular": "^1.7.9",
@@ -26,7 +31,10 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.0",
     "babelify": "^8.0.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.0.0",
     "tsify": "^4.0.1"
   }
 }

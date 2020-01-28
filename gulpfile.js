@@ -32,7 +32,7 @@ var interceptErrors = function(error) {
 
 gulp.task('browserify', ['views'], function() {
   return browserify('./src/js/app.ts')
-      // .transform(babelify, {presets: ["es2015"]})
+      .transform(babelify, {presets: ["es2015"]})
       .plugin(tsify)
       // .transform(ngAnnotate)
       .bundle()

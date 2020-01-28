@@ -45,5 +45,5 @@ angular.module('app').config(['$httpProvider', '$stateProvider', '$locationProvi
 angular.module('app').run(['AppConstants', '$rootScope',appRun]);
 
 angular.bootstrap(document, ['app'], {
-  strictDi: true
+  strictDi: false
 });
