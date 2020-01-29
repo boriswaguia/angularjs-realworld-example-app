@@ -30,19 +30,6 @@ var interceptErrors = function(error) {
 };
 
 
-gulp.task('browserify', ['views'], function() {
-  return browserify('./src/js/app.ts')
-      .transform(babelify, {presets: ["es2015"]})
-      .plugin(tsify)
-      // .transform(ngAnnotate)
-      .bundle()
-      .on('error', interceptErrors)
-      //Pass desired output filename to vinyl-source-stream
-      .pipe(source('main.js'))
-      // Start piping stream to tasks!
-      .pipe(gulp.dest('./build/'));
-});
-
 gulp.task('html', function() {
   return gulp.src("src/index.html")
       .on('error', interceptErrors)
@@ -59,9 +46,26 @@ gulp.task('views', function() {
       .pipe(gulp.dest('./src/js/config/'));
 });
 
+
+gulp.task('browserify', gulp.series([], function() {
+  return browserify({
+        entries:'./src/js/app.ts',
+          debug: true
+        })
+        .plugin(tsify)
+        .transform(babelify, {})
+      // .transform(ngAnnotate)
+      .bundle()
+      .on('error', interceptErrors)
+      //Pass desired output filename to vinyl-source-stream
+      .pipe(source('main.js'))
+      // Start piping stream to tasks!
+      .pipe(gulp.dest('./build/'));
+}));
+
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
-gulp.task('build', ['html', 'browserify'], function() {
+gulp.task('build', gulp.series(['html', 'browserify'], function() {
   var html = gulp.src("build/index.html")
                  .pipe(gulp.dest('./dist/'));
 
@@ -70,9 +74,9 @@ gulp.task('build', ['html', 'browserify'], function() {
                .pipe(gulp.dest('./dist/'));
 
   return merge(html,js);
-});
+}));
 
-gulp.task('default', ['html', 'browserify'], function() {
+gulp.task('default', gulp.series(['html', 'browserify'], function() {
 
   browserSync.init(['./build/**/**.**'], {
     server: "./build",
@@ -83,7 +87,7 @@ gulp.task('default', ['html', 'browserify'], function() {
     },
   });
 
-  gulp.watch("src/index.html", ['html']);
-  gulp.watch(viewFiles, ['views']);
-  gulp.watch(jsFiles, ['browserify']);
-});
+  gulp.watch("src/index.html", gulp.series(['html']));
+  gulp.watch(viewFiles, gulp.series(['views']));
+  gulp.watch(jsFiles, gulp.series(['browserify']));
+}));

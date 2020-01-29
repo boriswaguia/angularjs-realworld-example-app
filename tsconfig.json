@@ -1,12 +1,10 @@
 {
     "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "node_modules"
+        "srcsd/**/*.ts"
     ],
     "compilerOptions": {
         "target": "es2015",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["!jasmine"]
     }
 }
